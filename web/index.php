@@ -1,3 +1,3 @@
 <?php
 
-echo 'sup! wefwef ';
+echo 'sup!';
