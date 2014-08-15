@@ -7,7 +7,7 @@ class HttpRules {
 			$rules = array();
 			foreach (get_class_methods('HttpRules') as $m) {
 				if (strpos($m,'run') === 0)
-					$rules[] $m;
+					$rules[] = $m;
 			}
 		}
 		if (!is_array($rules))
