@@ -5,11 +5,9 @@ class HttpRules {
 	static function run($rules=null){
 		if ($rules === null) {
 			$rules = array();
-			$methods = get_class_methods('HttpRules');
-			foreach ($methods as $m) {
-				echo "$m\n";
-				//if (strpos($m,'run') === 0)
-				//	$rules[] = $m;
+			foreach (get_class_methods('HttpRules') as $m) {
+				if (strpos($m,'run') === 0 && $m !== 'run')
+					$rules[] = $m;
 			}
 		}
 		if (!is_array($rules))
