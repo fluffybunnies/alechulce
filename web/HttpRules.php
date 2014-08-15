@@ -20,9 +20,10 @@ class HttpRules {
 
 	static function runIndexPages($pages=array('index.php','index.html','index.htm')){
 		foreach ($pages as $k => $v) {
-			var_dump($_SERVER);
 			$check = $_SERVER['DOCUMENT_ROOT'].$_SERVER['DOCUMENT_URI'].$v;
-			echo "$check\n";
+			// temp hack
+			if ($_SERVER['SCRIPT_FILENAME'] == $check)
+				continue;
 			if (file_exists($check)) {
 				include $check;
 				return true;
