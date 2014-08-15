@@ -4,7 +4,7 @@ class HttpRules {
 
 	static function run($rules=null){
 		if ($rules === null) {
-			$m = get_class_methods(self);
+			$m = get_class_methods('HttpRules');
 			var_dump($m);
 		}
 		if (!is_array($rules))
