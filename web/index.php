@@ -2,4 +2,4 @@
 
 include 'HttpRules.php';
 
-HttpRules::indexPages();
+HttpRules::runIndexPages();
