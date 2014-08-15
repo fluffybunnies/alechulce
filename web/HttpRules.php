@@ -6,10 +6,10 @@ class HttpRules {
 		if ($rules === null) {
 			$rules = array();
 			$methods = get_class_methods('HttpRules');
-			foreach ($methods as $m) {
+			/*foreach ($methods as $m) {
 				if (strpos($m,'run') === 0)
 					$rules[] = $m;
-			}
+			}*/
 		}
 		if (!is_array($rules))
 			throw new Exception('invalid rules');
