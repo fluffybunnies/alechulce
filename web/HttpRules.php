@@ -2,6 +2,14 @@
 
 class HttpRules {
 
+	/*static function run($rules=null){
+		if ($rules === null) {
+
+		}
+		if (!is_array($rules))
+			throw new Exception('');
+	}*/
+
 	static function runIndexPages($pages=array('index.php','index.html','index.htm')){
 		foreach ($pages as $k => $v) {
 			$check = $_SERVER['DOCUMENT_ROOT'].$_SERVER['DOCUMENT_URI'].$v;
