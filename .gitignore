@@ -3,3 +3,4 @@
 node_modules
 hooky.json
 npm-debug.log
+config.override.php

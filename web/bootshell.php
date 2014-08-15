@@ -9,8 +9,10 @@ define('APP_PATH',WEBROOT.'/ace');
 
 include APP_PATH.'/autoload.php';
 
+\ace\Ace::loadConfig( APP_PATH.'/config.php', APP_PATH.'/config.override.php' );
+
 echo "sup";
 
-//\ace\Ace::loadConfig( WEBROOT.'/config.php', WEBROOT.'/config.override.php' );
+
 
 //include APP_PATH.'/router.php';
