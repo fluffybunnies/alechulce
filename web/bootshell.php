@@ -11,8 +11,11 @@ include APP_PATH.'/autoload.php';
 
 \ace\Ace::loadConfig( APP_PATH.'/config.php', APP_PATH.'/config.override.php' );
 
+// api
 include APP_PATH.'/router.php';
 
-echo "sup";
+// et al
+include WEBROOT.'/HttpRules.php';
+HttpRules::run();
 
 
