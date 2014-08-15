@@ -1,5 +1,9 @@
 <?php
 
+echo "wfwef\n";
+echo dirname(__FILE__);
+
+/*
 define('WEBROOT', dirname(__FILE__));
 echo WEBROOT;
 
@@ -12,3 +16,4 @@ include 'HttpRules.php';
 HttpRules::run()
 
 HttpRules::runIndexPages();
+*/
