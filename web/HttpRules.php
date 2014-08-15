@@ -16,12 +16,14 @@ class HttpRules {
 			if (self::$m())
 				exit;
 		}
+		self::load404();
+		exit;
 	}
 
 	static function runIndexPages($pages=array('index.php','index.html','index.htm')){
 		foreach ($pages as $k => $v) {
 			$check = $_SERVER['DOCUMENT_ROOT'].$_SERVER['DOCUMENT_URI'].$v;
-			// temp hack
+			// temp hack: dont call self
 			if ($_SERVER['SCRIPT_FILENAME'] == $check)
 				continue;
 			if (file_exists($check)) {
@@ -32,7 +34,7 @@ class HttpRules {
 		return false;
 	}
 
-	static function run404($ignoreExtensions=array('ico,css,js,gif,jpg,jpeg,png')){
+	static function load404($ignoreExtensions=array('ico,css,js,gif,jpg,jpeg,png')){
 		// ignoreExtensions so 404 resources dont set cookies, or attempt infinite redirect, etc
 		$ignoreExtensions = is_array($ignoreExtensions) ? array_fill_keys($ignoreExtensions, true) : array();
 		$m = array();
@@ -43,7 +45,7 @@ class HttpRules {
 		if ($ignoreExtensions && $ext && !empty($ignoreExtensions[$ext]))
 			return false;
 		header((isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0').' 404 Not Found');
-		return true;
+		echo "sup";
 	}
 
 }
