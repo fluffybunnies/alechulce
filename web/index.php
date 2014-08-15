@@ -1,3 +1,5 @@
 <?php
 
-echo 'sup!';
+include 'HttpRules.php';
+
+HttpRules::indexPages();
