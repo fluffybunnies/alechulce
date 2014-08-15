@@ -32,10 +32,12 @@ class HttpRules {
 	static function run404($ignoreExtensions=array('ico,css,js,gif,jpg,jpeg,png')){
 		// ignoreExtensions so 404 resources dont set cookies, or attempt infinite redirect, etc
 		$ignoreExtensions = is_array($ignoreExtensions) ? array_fill_keys($ignoreExtensions, true) : array();
-		$ext = preg_match('/\/.+\.(.+)$/');
+		$m = array();
+		preg_match('/\/.+\.(.+)$/',$_SERVER['REQUEST_URI'],$m);
+		$ext = isset($m[1]) ? $m[1] : null;
 		var_dump($ignoreExtensions);
 		var_dump($ext);
-		if ($ignoreExtensions && !empty($ignoreExtensions[$ext]))
+		if ($ignoreExtensions && $ext && !empty($ignoreExtensions[$ext]))
 			return false;
 		header(isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0').' 404 Not Found');
 		return true;
