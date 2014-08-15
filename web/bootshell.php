@@ -7,7 +7,6 @@ if (!empty($_GET['debug'])) {
 define('WEBROOT',dirname(__FILE__));
 define('APP_PATH',WEBROOT.'/ace');
 
-include WEBROOT.'/common.php';
 include APP_PATH.'/autoload.php';
 
 echo "sup";
