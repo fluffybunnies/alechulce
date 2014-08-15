@@ -39,7 +39,7 @@ class HttpRules {
 		var_dump($ext);
 		if ($ignoreExtensions && $ext && !empty($ignoreExtensions[$ext]))
 			return false;
-		header(isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0').' 404 Not Found');
+		header((isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0').' 404 Not Found');
 		return true;
 	}
 
