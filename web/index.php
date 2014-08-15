@@ -1,3 +1,3 @@
 <?php
 
-include WEBROOT.'/bootshell.php';
+include dirname(__FILE__)..'/bootshell.php';
