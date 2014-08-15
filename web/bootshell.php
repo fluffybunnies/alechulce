@@ -6,12 +6,11 @@ if (!empty($_GET['debug'])) {
 
 define('WEBROOT',dirname(__FILE__));
 define('APP_PATH',WEBROOT.'/ace');
-echo "wefwef\n";
-echo WEBROOT;
-echo APP_PATH;
 
-//include WEBROOT.'/common.php';
-//include APP_PATH.'/autoload.php';
+include WEBROOT.'/common.php';
+include APP_PATH.'/autoload.php';
+
+echo "sup";
 
 //\ace\Ace::loadConfig( WEBROOT.'/config.php', WEBROOT.'/config.override.php' );
 
