@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>WebGL Game Test - Three.js + impactJS</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta property="og:title" content="WebGL Game Test - Three.js + impactJS">
+	<meta property="og:description" content="Demo using three.JS to render a game made with impactJS + box2D.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://asmallgame.com/labsopen/webgl_impact">
+
+	<script type="x-shader/x-vertex" id="vertexshader">
+
+		attribute float size;
+		attribute vec3 pcolor;
+
+		varying vec3 vColor;
+
+		void main() {
+			vColor = pcolor;
+			vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+			gl_PointSize = size * ( 200.0 / length( mvPosition.xyz ) );
+			gl_Position = projectionMatrix * mvPosition;
+		}
+
+	</script>
+
+	<script type="x-shader/x-fragment" id="fragmentshader">
+
+		uniform sampler2D texture;
+
+		varying vec3 vColor;
+
+		void main() {
+			vec4 outColor = texture2D( texture, gl_PointCoord );
+			gl_FragColor = outColor * vec4( vColor, 1.0 );
+		}
+
+	</script>
+
+			
+	<script src="lib/three.js/Three.js"></script>
+	<script src="lib/three.js/Detector.js"></script>
+	<script src="lib/three.js/ShaderExtras.js"></script>
+	
+	<!-- https://github.com/mrdoob/stats.js -->
+	<script src="lib/three.js/Stats.js"></script>
+	<script src="lib/three.js/postprocessing/EffectComposer.js"></script>
+	<script src="lib/three.js/postprocessing/RenderPass.js"></script>
+	<script src="lib/three.js/postprocessing/BloomPass.js"></script>
+	<script src="lib/three.js/postprocessing/FilmPass.js"></script>
+	<script src="lib/three.js/postprocessing/DotScreenPass.js"></script>
+	<script src="lib/three.js/postprocessing/TexturePass.js"></script>
+	<script src="lib/three.js/postprocessing/ShaderPass.js"></script>
+	<script src="lib/three.js/postprocessing/MaskPass.js"></script>
+	<script src="lib/three.js/Tween.js"></script>
+	<script src="lib/three.js/Sparks.js"></script>
+	<script src="lib/jetpackFlame.js"></script>
+
+	<script src="lib/dat.gui.min.js"></script>
+</head>
+<body data-twttr-rendered="true" style="background-color:#000000; color:#ffffff;text-align:center;font-family:sans-serif">
+	<!-- three.js container -->
+	<div id="container"> </div>
+	<!-- info on screen display -->
+	<div id="info"> 
+		<div class="top">		
+		</div>	
+	</div> 
+
+
+	<script type="text/javascript" src="game.js"></script>
+
+	<canvas height="480" width="640" id="canvas" style="display:none"> </canvas>
+	<script type="text/javascript" src="lib/impact/impact.js"></script>
+		<script type="text/javascript" src="lib/impact3D.js"></script>
+		<script type="text/javascript" src="lib/game/main.js"></script>
+	<h2 style="margin-bottom:0px;color:#ffffff"> WebGL - Three.js + impactJS </h2>
+	<p style="color:#ffffff" ;=""> Arrows - Move	|	X - Jump	|	C - Shoot </p>
+
+</body>
+</html>
