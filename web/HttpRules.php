@@ -23,6 +23,7 @@ class HttpRules {
 	static function runIndexPages($pages=array('index.php','index.html','index.htm')){
 		foreach ($pages as $k => $v) {
 			$check = $_SERVER['DOCUMENT_ROOT'].$_SERVER['DOCUMENT_URI'].$v;
+			echo $check."\n<br />";
 			// temp hack: dont call self
 			if ($_SERVER['SCRIPT_FILENAME'] == $check)
 				continue;
