@@ -24,7 +24,6 @@ class HttpRules {
 		$me = rtrim($_SERVER['DOCUMENT_ROOT'].$_SERVER['DOCUMENT_URI'], '/');
 		foreach ($pages as $k => $v) {
 			$check = "$me/$v";
-			echo $check."\n<br />";
 			// temp hack: dont call self
 			if ($_SERVER['SCRIPT_FILENAME'] == $check)
 				continue;
