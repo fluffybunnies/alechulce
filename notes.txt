@@ -7,5 +7,10 @@
 cd /root/sire
 ./index.sh alechulce
 
+# local:
+./index.sh _deploy
+# change ip to point at new server
+ssh ubuntu@123.123.123.123 'sudo /root/sire/index.sh alechulce'
+
 
 --- To Do ---
